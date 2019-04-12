@@ -6,6 +6,7 @@ class SearchController < ApplicationController
         if params["negative_attitude"]
             $client.search("#{params["search_terms"]} :(", result_type: "recent").take(5).collect do |tweet|
             tweets << "#{tweet.url}"
+
             end
         elsif params["positive_attitude"]
             $client.search("#{params["search_terms"]} :)", result_type: "recent").take(5).collect do |tweet|

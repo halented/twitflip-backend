@@ -18,7 +18,8 @@ class SearchController < ApplicationController
         end
 
         tweets.map! do |tweetUrl|
-            HTTParty.get("https://publish.twitter.com/oembed?url="+tweetUrl)
+            tweet = HTTParty.get("https://publish.twitter.com/oembed?url="+tweetUrl)
+            tweet["html"]
         end
         json['tweets']=tweets
         render json: json

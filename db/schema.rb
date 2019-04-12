@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_165135) do
   end
 
   create_table "tweets", force: :cascade do |t|
+    t.string "html"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

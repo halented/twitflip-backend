@@ -1,27 +1,27 @@
 class SearchController < ApplicationController
 
     def new
-        whatever = {}
-        twits = []
+        json = {}
+        tweets = []
         if params[negative_attitude]
-        $client.search("#{params[search_terms]} :(", result_type: "recent").take(5).collect do |tweet| 
-            twits << "#{tweet.url}"
+            $client.search("#{params[search_terms]} :(", result_type: "recent").take(5).collect do |tweet|
+            tweets << "#{tweet.url}"
             end
         elsif params[positive_attitude]
-            $client.search("#{params[search_terms]} :)", result_type: "recent").take(5).collect do |tweet| 
-            twits << "#{tweet.url}"
+            $client.search("#{params[search_terms]} :)", result_type: "recent").take(5).collect do |tweet|
+            tweets << "#{tweet.url}"
             end
-        else 
-            $client.search("#{params[search_terms]}", result_type: "recent").take(5).collect do |tweet| 
-            twits << "#{tweet.url}"
+        else
+            $client.search("#{params[search_terms]}", result_type: "recent").take(5).collect do |tweet|
+            tweets << "#{tweet.url}"
             end
         end
-        
-        twits.map! do |tweetUrl|
+
+        tweets.map! do |tweetUrl|
             HTTParty.get("https://publish.twitter.com/oembed?url="+tweetUrl)
         end
-        whatever['tweet']=twits
-        render json: whatever
+        json['tweets']=tweets
+        render json: json
     end
 
 end

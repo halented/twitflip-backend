@@ -1,9 +1,11 @@
 # Load the Rails application.
 require_relative 'application'
-require_relative 'api_stuff.rb'
-require_relative 'api_keys.rb'
+require './config/api_stuff.rb'
+require './config/api_keys.rb' 
 
 # Initialize the Rails application.
 Rails.application.initialize!
 
-#require './config/api_keys.rb' not sure why this isn't working
+#why do I have to switch them back and forth every time
+#require_relative 'api_stuff.rb'
+#require_relative 'api_keys.rb'

@@ -1,18 +1,19 @@
 class SearchController < ApplicationController
 
     def new
+        
         whatever = {}
         twits = []
-        if params[negative_attitude]
-        $client.search("#{params[search_terms]} :(", result_type: "recent").take(5).collect do |tweet| 
+        if params['negative_attitude']
+        $client.search("#{params[search_terms]} :(", result_type: "popular").take(5).collect do |tweet| 
             twits << "#{tweet.url}"
             end
-        elsif params[positive_attitude]
-            $client.search("#{params[search_terms]} :)", result_type: "recent").take(5).collect do |tweet| 
+        elsif params['positive_attitude']
+            $client.search("#{params['search_terms']} :)", result_type: "popular").take(5).collect do |tweet| 
             twits << "#{tweet.url}"
             end
         else 
-            $client.search("#{params[search_terms]}", result_type: "recent").take(5).collect do |tweet| 
+            $client.search("#{params['search_terms']}", result_type: "popular").take(5).collect do |tweet| 
             twits << "#{tweet.url}"
             end
         end

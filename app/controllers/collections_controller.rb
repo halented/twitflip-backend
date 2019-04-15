@@ -8,13 +8,8 @@ class CollectionsController < ApplicationController
     end
 
     def create
-      collection = Collection.create(collection_params(params))
+      collection = Collection.create(name: params[:name], user_id: params[:user_id])
       render json: collection
     end
 
-    private
-
-    def collection_params(params)
-      params.require(:collection).permit(:name, :user_id)
-    end
 end

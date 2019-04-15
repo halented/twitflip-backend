@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def create
-    tweet = Tweet.create(tweet_params(params))
+    tweet = Tweet.create(html: params[:html], collection_id: params[:collection_id]) 
     render json: tweet
   end
 
@@ -14,7 +14,5 @@ class TweetsController < ApplicationController
 
   private
 
-  def tweet_params(params)
-    params.require(:tweet).permit(:html, :collection_id)
-  end
+
 end

@@ -1,4 +1,4 @@
 class CollectionSerializer < ActiveModel::Serializer
-attributes :name, :user_id
-belongs_to :user
+  attributes :id, :name, :user_id
+  has_many :tweets
 end

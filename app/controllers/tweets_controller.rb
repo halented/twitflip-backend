@@ -1,8 +1,7 @@
 class TweetsController < ApplicationController
-
   def create
-    tweet = Tweet.create(html: params[:html], collection_id: params[:collection_id]) 
-    render json: tweet
+  tweet = Tweet.create(html: params[:html], collection_id: params[:collection_id])
+  render json: tweet
   end
 
   def collection_tweets
@@ -11,8 +10,4 @@ class TweetsController < ApplicationController
     tweets = tweets.select {|tweet| tweet.collection_id == collection.id}
     render json: tweets
   end
-
-  private
-
-
 end

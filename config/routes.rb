@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :searches
-  resources :users
-  resources :collections
   resources :tweets
+  resources :collections
+  resources :users
   post '/search', to: "search#new"
   post '/user_collections', to: "collections#user_collections"
   post '/collection_tweets', to: "tweets#collection_tweets"

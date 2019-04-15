@@ -1,3 +1,3 @@
 class Tweet < ApplicationRecord
-    belongs_to :collection
+  belongs_to :collection
 end

@@ -1,4 +1,3 @@
 class TweetSerializer < ActiveModel::Serializer
-attributes :html, :collection_id
-belongs_to :collection
+  attributes :id, :html, :collection_id
 end

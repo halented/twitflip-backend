@@ -11,4 +11,9 @@ class CollectionsController < ApplicationController
     render json: collection
   end
 
+  def show
+    collection = Collection.find(params[:id])
+    render json: collection
+  end
+
 end

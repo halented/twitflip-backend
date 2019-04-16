@@ -6,6 +6,6 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    render json: user, include: ['collections', 'collections.tweets']
+    render json: user, include: '*.*'
   end
 end

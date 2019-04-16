@@ -16,4 +16,10 @@ class CollectionsController < ApplicationController
     render json: collection
   end
 
+  def update
+    collection = Collection.find(params[:id])
+    collection.update(name: params["new_name"])
+    render json: collection
+  end
+
 end

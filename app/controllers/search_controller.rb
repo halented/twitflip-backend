@@ -4,15 +4,15 @@ class SearchController < ApplicationController
         json = {}
         tweets = []
         if params["negative_attitude"]
-            $client.search("#{params["search_terms"]} :(", result_type: "recent").take(5).collect do |tweet|
+            $client.search("#{params["search_terms"]} :(", result_type: "recent").take(params["tweet_results"].to_i).collect do |tweet|
             tweets << "#{tweet.url}"
             end
         elsif params["positive_attitude"]
-            $client.search("#{params["search_terms"]} :)", result_type: "recent").take(5).collect do |tweet|
+            $client.search("#{params["search_terms"]} :)", result_type: "recent").take(params["tweet_results"].to_i).collect do |tweet|
             tweets << "#{tweet.url}"
             end
         else
-            $client.search("#{params["search_terms"]}", result_type: "recent").take(5).collect do |tweet|
+            $client.search("#{params["search_terms"]}", result_type: "recent").take(params["tweet_results"].to_i).collect do |tweet|
             tweets << "#{tweet.url}"
             end
         end

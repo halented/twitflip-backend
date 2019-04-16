@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+
   def create
   tweet = Tweet.create(html: params[:html], collection_id: params[:collection_id])
   render json: tweet
@@ -9,5 +10,10 @@ class TweetsController < ApplicationController
     tweets = Tweet.all
     tweets = tweets.select {|tweet| tweet.collection_id == collection.id}
     render json: tweets
+  end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+
   end
 end

@@ -1,11 +1,3 @@
-it's the backend!
-
-#1: bundle install
-
-#2: rails s
-
-#3: head over to the front end :)
-
 # TwitFlip - Backend
 
 [TwitFlip](http://twitflip.herokuapp.com/) is an app for searching Twitter tweets and storing them in collections. 
